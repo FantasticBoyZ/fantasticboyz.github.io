@@ -1,0 +1,396 @@
+<!-------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <!--Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/c040e11ffa.js" crossorigin="anonymous"></script>
+    <!-- Slick slider-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Custom Stylesheet-->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        .cart-page {
+            margin: 80px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-info {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        th {
+            text-align: left;
+            padding: 5px;
+            color: #ffffff;
+            background: #45ccb8;
+            font-weight: normal;
+        }
+
+        td {
+            padding: 10px 5px;
+        }
+
+        td input {
+            width: 40px;
+            height: 30px;
+            padding: 5px;
+        }
+
+        td a {
+            color: #ff523b;
+            font-size: 12px;
+        }
+
+        td img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .total-price table {
+            border-top: 3px solid #45ccb8;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        td:last-child {
+            text-align: right;
+        }
+
+        th:last-child {
+            text-align: right;
+        }
+
+        /* Cart icon style */
+        .site-header__cart-count {
+            font-size: 11px;
+            display: inline-block;
+            color: #fff;
+            background-color: #000;
+            border-radius: 50%;
+            text-align: center;
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            position: relative;
+            right: -30px;
+            top: -15px;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--header-->
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-12">
+                    <div class="btn-group">
+                        <button class="btn border dropdown-toggle my-md-4 my-2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            UK
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">VN</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 text-center">
+                    <a href="index.html">
+                        <h2 class="my-md-3 site-title text-white">Online Store</h2>
+                    </a>
+                </div>
+                <div class="col-md-4 col-12 text-right">
+                    <p class="my-md-4 header-links">
+                        <a href="login.html" class="px-2">Log In</a>
+                        <a href="register.html" class="px-1">Create an Account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                New Product
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Men Fashion</a>
+                                <a class="dropdown-item" href="#">Women Fashion</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Accessories</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Brand Stuff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="navbar-nav">
+                    <!-- <div class="site-header__search"> -->
+                    <div class="search-trigger">
+                        <li class="nav-item border rounded-circle mx-2 search-icon"></li>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                    class="fas fa-search p-2"></i></button>
+                        </form>
+
+                        </li>
+                    </div>
+                    <!-- </div> -->
+                    <a href="#" class="site-header__cart" title="Cart">
+                        <li class="nav-item border rounded-circle mx-2 basket-icon">
+                            <i class="fas fa-shopping-cart p-3"></i>
+
+                        </li>
+                        <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">3</span>
+                    </a>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Cart details-->
+
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="">
+                        <div>
+                            <p>Red Printed Tshirt</p>
+                            <small>Price: $50.00</small><br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" min="1" value="1" /></td>
+                <td>50$</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="">
+                        <div>
+                            <p>Red Printed Tshirt</p>
+                            <small>Price: $50.00</small><br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" min="1" value="1" /></td>
+                <td>50$</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="">
+                        <div>
+                            <p>Red Printed Tshirt</p>
+                            <small>Price: $50.00</small><br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" min="1" value="1" /></td>
+                <td>50$</td>
+            </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$200</td>
+                </tr>
+                <td>Tax</td>
+                <td>$35</td>
+                </tr>
+                <td>Total</td>
+                <td>$235</td>
+                </tr>
+                </tr>
+                <td></td>
+                <td><a href="#"><button>Check out</button></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- js for product gallery-->
+    <footer class="page-footer font-small indigo">
+
+        <!-- Footer Links -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="#!">About us</a>
+                    </h6>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="#!">Products</a>
+                    </h6>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="#!">Awards</a>
+                    </h6>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="#!">Help</a>
+                    </h6>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="#!">Contact</a>
+                    </h6>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+            <hr class="rgba-white-light" style="margin: 0 15%;">
+
+            <!-- Grid row-->
+            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+                <!-- Grid column -->
+                <div class="col-md-8 col-12 mt-5">
+                    <p style="line-height: 1.7rem">Everyday living. Be unique, be brave, be divine. Quality never goes
+                        out of style. Explore your true style.</p>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+            <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+            <!-- Grid row-->
+            <div class="row pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-12 social-icon">
+
+                    <div class="mb-5 flex-center">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class="gplus-ic">
+                            <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+                        </a>
+                        <!--Pinterest-->
+                        <a class="pin-ic">
+                            <i class="fab fa-pinterest fa-lg white-text"> </i>
+                        </a>
+
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://www.facebook.com/thanhtroll2000"> Vu Khoi</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>
